@@ -18,6 +18,6 @@
 - include: make_symlink.yml
   when: is_right_version.stdout.find("/") != 0
 
-- include: set_environment.yml
+#- include: set_environment.yml
 
 - include: start_service.yml
