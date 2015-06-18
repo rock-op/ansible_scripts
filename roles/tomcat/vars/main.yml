@@ -1,0 +1,2 @@
+CATALINA_HOME: /home/work/apache-tomcat-7.0.{{ module }}
+CATALINA_BASE: /home/work/apache-tomcat-7.0.{{ module }}

@@ -1,0 +1,6 @@
+- name: verify if jdk is exist at localhost
+  stat: path={{ JAVA_HOME }}
+  register: local_java_home
+
+- include: install_jdk.yml
+  when: local_java_home.stat.exists == False

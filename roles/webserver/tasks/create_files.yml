@@ -1,0 +1,2 @@
+- name: be sure production_dir exist
+  file: path={{ production_dir }} state=directory mode=755 owner=work group=work

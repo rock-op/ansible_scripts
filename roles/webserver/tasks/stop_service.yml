@@ -1,0 +1,2 @@
+- name: stop service and check
+  shell: if [ -f {{ workspace }}/deploy_script/run.sh ]; then sh {{ workspace }}/deploy_script/run.sh stop; fi

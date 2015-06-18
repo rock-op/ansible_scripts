@@ -1,0 +1,5 @@
+- name: download jdk1.8 package
+  get_url: url=http://{{ bucket }}.{{ domain }}/component/jdk-8u45-linux-x64.gz dest=/tmp/jdk-8u45-linux-x64.gz
+
+- name: decompress jdk-1.8
+  shell: tar zxf /tmp/jdk-8u45-linux-x64.gz -C /home/work && mv jdk1.8.0_45 {{ JAVA_HOME }}

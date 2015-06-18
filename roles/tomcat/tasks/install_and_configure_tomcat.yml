@@ -1,0 +1,8 @@
+- name: download tomcat package
+  get_url: url=http://{{ bucket }}.{{ domain }}/component/apache-tomcat-7.0.62.tar.gz dest=/tmp/apache-tomcat-7.0.62.tar.gz
+
+- name: decompress tomcat
+  shell: tar zxf /tmp/apache-tomcat-7.0.62.tar.gz -C /home/work; mv apache-tomcat-7.0.62 {{ CATALINA_HOME }}
+
+- name: configure server.xml
+  template: src=server.xml.j2 dest={{ CATALINA_HOME }}/conf/server.xml

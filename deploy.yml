@@ -1,0 +1,13 @@
+---
+- hosts: online.px-cas.ecs.qd
+  remote_user: work
+  roles:
+    - java
+    - tomcat
+    - webserver
+
+- hosts: online.cofood.ecs.qd
+  remote_user: work
+  roles:
+    - java
+    - webserver

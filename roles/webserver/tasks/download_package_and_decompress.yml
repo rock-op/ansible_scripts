@@ -1,0 +1,8 @@
+- name: download package when the specific version is not exist at localhost
+  get_url: url=http://{{ bucket }}.{{ domain }}/{{ module }}/{{ module }}_{{ version }}.tar.gz dest={{ production_dir }}/{{ module }}_{{ version }}.tar.gz
+
+- name: decompress package
+  shell: cd {{ production_dir }} && tar zxf {{ module }}_{{ version }}.tar.gz
+
+#- name: substitue server.xml
+#  

@@ -1,0 +1,23 @@
+- include: create_files.yml
+
+- name: verify if the specific version is exist at localhost
+  stat: path={{ production_dir }}/{{ module }}_{{ version }}
+  register: local_package
+
+- include: download_package_and_decompress.yml
+  when: local_package.stat.exists == False
+
+- name: verify if the specific version is running?
+  shell: readlink {{ workspace }} | grep {{ version }}
+  register: is_right_version
+  ignore_errors: yes
+
+- include: stop_service.yml
+  when: is_right_version.stdout.find("/") != 0
+
+- include: make_symlink.yml
+  when: is_right_version.stdout.find("/") != 0
+
+- include: set_environment.yml
+
+- include: start_service.yml

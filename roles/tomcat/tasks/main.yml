@@ -1,0 +1,6 @@
+- name: verify if tomcat is exist at localhost
+  stat: path={{ CATALINA_HOME }}
+  register: local_tomcat_home
+
+- include: install_and_configure_tomcat.yml
+  when: local_tomcat_home.stat.exists == False

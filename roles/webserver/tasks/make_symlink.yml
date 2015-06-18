@@ -1,0 +1,5 @@
+- name: make symlink
+  shell:
+    if [ -L {{ workspace }}.last ]; then rm {{ workspace }}.last; fi;
+    if [ -L {{ workspace }} ]; then mv {{ workspace }} {{ workspace }}.last; fi;
+    ln -s {{ production_dir }}/{{ module }}_{{ version }} {{ workspace }};
