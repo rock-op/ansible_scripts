@@ -1,2 +1,2 @@
 - name: start service and check
-  shell: sh {{ workspace }}/deploy_script/run.sh start
+  shell: sh {{ workspace }}/bin/run.sh start
